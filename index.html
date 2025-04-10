@@ -132,26 +132,6 @@
             font-weight: 600;
             font-family: 'Times New Roman', Times, serif;
         }
-        .btn-download {
-            background-color: #1976d2;
-            color: white;
-            border: none;
-            padding: 8px 15px;
-            border-radius: 4px;
-            cursor: pointer;
-            margin-top: 10px;
-            text-decoration: none;
-            display: inline-block;
-            transition: background-color 0.3s;
-        }
-        .btn-download:hover {
-            background-color: #1565c0;
-            color: white;
-        }
-        .download-container {
-            text-align: center;
-            margin-top: 20px;
-        }
     </style>
 </head>
 <body>
@@ -267,12 +247,6 @@
                 English: Intermediate<br>
                 Spanish: Intermediate</p>
             </div>
-            
-            <div class="download-container">
-                <a href="#" class="btn-download" id="download-english">
-                    <i class="fas fa-download me-2"></i>Download PDF
-                </a>
-            </div>
         </div>
 
         <!-- Portuguese CV -->
@@ -374,26 +348,17 @@
                 Inglês: Intermediário<br>
                 Espanhol: Intermediário</p>
             </div>
-            
-            <div class="download-container">
-                <a href="#" class="btn-download" id="download-portuguese">
-                    <i class="fas fa-download me-2"></i>Baixar PDF
-                </a>
-            </div>
         </div>
     </div>
 
     <!-- Bootstrap and JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const btnEnglish = document.getElementById('btn-english');
             const btnPortuguese = document.getElementById('btn-portuguese');
             const englishCV = document.getElementById('english-cv');
             const portugueseCV = document.getElementById('portuguese-cv');
-            const downloadEnglish = document.getElementById('download-english');
-            const downloadPortuguese = document.getElementById('download-portuguese');
             
             btnEnglish.addEventListener('click', function() {
                 englishCV.classList.remove('hidden');
@@ -411,68 +376,6 @@
                 btnPortuguese.classList.remove('btn-outline-primary');
                 btnEnglish.classList.remove('btn-primary');
                 btnEnglish.classList.add('btn-outline-primary');
-            });
-            
-            // Função melhorada para geração de PDF
-            function generatePDF(element, filename) {
-                // Clonar o elemento para não modificar o original na página
-                const pdfContent = element.cloneNode(true);
-                
-                // Remover o botão de download do PDF
-                pdfContent.querySelector('.download-container').remove();
-                
-                // Ajustes de estilo para melhor renderização no PDF
-                const style = document.createElement('style');
-                style.textContent = `
-                    .cv-container { margin: 0; padding: 15px; box-shadow: none; }
-                    .section { page-break-inside: avoid; }
-                    p { margin-bottom: 8px; }
-                    .job { page-break-inside: avoid; }
-                `;
-                pdfContent.appendChild(style);
-                
-                // Criar um contêiner temporário para o PDF
-                const tempContainer = document.createElement('div');
-                tempContainer.style.position = 'absolute';
-                tempContainer.style.left = '-9999px';
-                tempContainer.appendChild(pdfContent);
-                document.body.appendChild(tempContainer);
-                
-                // Configurações do PDF
-                const opt = {
-                    margin: [15, 15, 15, 15],
-                    filename: filename,
-                    image: { type: 'jpeg', quality: 0.98 },
-                    html2canvas: { 
-                        scale: 2,
-                        useCORS: true,
-                        letterRendering: true
-                    },
-                    jsPDF: { 
-                        unit: 'mm', 
-                        format: 'a4', 
-                        orientation: 'portrait'
-                    },
-                    pagebreak: { mode: 'avoid-all', before: '.section-title' }
-                };
-                
-                // Gerar e salvar o PDF
-                html2pdf().from(pdfContent).set(opt).save().then(() => {
-                    // Remover o contêiner temporário após a geração do PDF
-                    document.body.removeChild(tempContainer);
-                });
-            }
-            
-            // PDF Download para versão em inglês
-            downloadEnglish.addEventListener('click', function(e) {
-                e.preventDefault();
-                generatePDF(englishCV, 'Ana_Paula_Vallejos_CV_English.pdf');
-            });
-            
-            // PDF Download para versão em português
-            downloadPortuguese.addEventListener('click', function(e) {
-                e.preventDefault();
-                generatePDF(portugueseCV, 'Ana_Paula_Vallejos_CV_Portugues.pdf');
             });
         });
     </script>
