@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ana Paula Carneiro S. Vallejos - CV</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #e0f7fa, #80deea, #4dd0e1, #b3e5fc);
+            background-attachment: fixed;
+            padding: 30px 20px;
+            min-height: 100vh;
+        }
+        .cv-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e6e6e6;
+        }
+        .header h1 {
+            color: #1565c0;
+            margin-bottom: 10px;
+            font-weight: 700;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        .header h2 {
+            color: #607d8b;
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            font-family: 'Times New Roman', Times, serif;
+            font-style: italic;
+        }
+        .contact-info {
+            text-align: center;
+            color: #546e7a;
+            margin-bottom: 25px;
+            font-size: 0.95rem;
+        }
+        .section-title {
+            color: #1565c0;
+            border-bottom: 2px solid #1565c0;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            font-weight: 600;
+            padding-bottom: 5px;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        .job-title {
+            font-weight: 700;
+            color: #263238;
+        }
+        .job-period {
+            float: right;
+            color: #78909c;
+            font-style: italic;
+            font-weight: normal;
+        }
+        .job-company {
+            color: #455a64;
+            font-weight: 600;
+            margin-bottom: 5px;
+            font-style: italic;
+        }
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 15px;
+        }
+        .skill-item {
+            background-color: #1976d2;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+        .lang-toggle {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .hidden {
+            display: none;
+        }
+        .btn-toggle {
+            padding: 8px 20px;
+            font-weight: 600;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        .job {
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px dotted #ccc;
+        }
+        .job:last-child {
+            border-bottom: none;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+        p {
+            color: #37474f;
+            line-height: 1.6;
+            text-align: justify;
+        }
+        .toggle-container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto 30px auto;
+        }
+        .toggle-title {
+            margin-bottom: 15px;
+            color: #1565c0;
+            font-weight: 600;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        .btn-download {
+            background-color: #1976d2;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+            text-decoration: none;
+            display: inline-block;
+            transition: background-color 0.3s;
+        }
+        .btn-download:hover {
+            background-color: #1565c0;
+            color: white;
+        }
+        .download-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="toggle-container">
+            <h4 class="toggle-title">Choose CV Language</h4>
+            <div class="btn-group" role="group">
+                <button type="button" class="btn btn-primary btn-toggle" id="btn-english">
+                    <i class="fas fa-language me-2"></i>English
+                </button>
+                <button type="button" class="btn btn-outline-primary btn-toggle" id="btn-portuguese">
+                    <i class="fas fa-language me-2"></i>Português
+                </button>
+            </div>
+        </div>
+
+        <!-- English CV -->
+        <div class="cv-container" id="english-cv">
+            <div class="header">
+                <h1>Ana Paula Carneiro S. Vallejos</h1>
+                <h2>PYTHON BACK-END DEVELOPER</h2>
+            </div>
+            
+            <div class="contact-info">
+                <i class="fas fa-map-marker-alt me-1"></i> Porto - Portugal | 
+                <i class="fas fa-envelope me-1"></i> anapaulacsvallejos@gmail.com | 
+                <i class="fas fa-ring me-1"></i> Married | 
+                <i class="fab fa-linkedin me-1"></i> linkedin.com/in/anapaulacarneiro
+            </div>
+            
+            <div class="section">
+                <h3 class="section-title">Summary</h3>
+                <p>Born and raised in Curitiba, Paraná - Brazil, currently living in Porto, Portugal.</p>
+                <p>I'm a technology enthusiast who enjoys connecting with people and helping whenever possible. Currently, I work as a back-end developer with experience in Python, Django, and PostgreSQL applied to microservices architecture, testing with pytest, CI/CD, AWS applications (SQS, SNS, ECR, Lambda, CloudWatch, among others), Docker, Kubernetes, Sentry, Logentries, and Github.</p>
+                <p>I always say: "By teaching, one learns," so I'm constantly engaged with tech communities, mentoring beginners, and sharing knowledge while learning more from the community. I believe it's important to encourage developers to communicate more, so they can realize how much this changes our lives, our social perception, and our vision of ourselves.</p>
+            </div>
+            
+            <div class="section">
+                <h3 class="section-title">Skills</h3>
+                <div class="skills-list">
+                    <div class="skill-item">Python</div>
+                    <div class="skill-item">Django</div>
+                    <div class="skill-item">Postgres</div>
+                    <div class="skill-item">SQL</div>
+                    <div class="skill-item">Git</div>
+                    <div class="skill-item">Pytest</div>
+                    <div class="skill-item">Docker</div>
+                    <div class="skill-item">Heroku</div>
+                    <div class="skill-item">AWS</div>
+                    <div class="skill-item">Sentry</div>
+                    <div class="skill-item">Logentries</div>
+                    <div class="skill-item">Kubernetes</div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h3 class="section-title">Experience</h3>
+                
+                <div class="job">
+                    <div class="job-title">HELP DESK <span class="job-period">06/2024 - Present</span></div>
+                    <div class="job-company">Monteiro Ribas Embalagens, Porto - PT</div>
+                    <p>Support for Sistrade ERP system, development of custom reports using SQL, and maintenance of SQL Server databases.</p>
+                </div>
+                
+                <div class="job">
+                    <div class="job-title">CLOUD ENGINEER <span class="job-period">07/2022 - 12/2022</span></div>
+                    <div class="job-company">Latitudde - Digital Enablers, Porto - PT</div>
+                    <p>Project for a healthcare sector client, using C#, Python, Azure, and APIGee in their applications. Creation and adjustment of documentation using OpenAPI and Swagger standards. In some internal projects, Django, PostgreSQL, and other technologies were used.</p>
+                </div>
+                
+                <div class="job">
+                    <div class="job-title">BACKEND DEVELOPER <span class="job-period">06/2021 - 02/2022</span></div>
+                    <div class="job-company">Bycoders_, Curitiba-BR</div>
+                    <p>Analyze, develop, test, and implement software solutions; Write/edit project documentation. Python backend-focused development in a project with Django Rest Framework, to be consumed by the client's mobile application (Instituto Trata Fisioterapia), where image processing and analysis were performed.</p>
+                </div>
+                
+                <div class="job">
+                    <div class="job-title">BACKEND DEVELOPER <span class="job-period">07/2020 - 05/2021</span></div>
+                    <div class="job-company">Olist, Curitiba-BR</div>
+                    <p>As a member of the logistics team, I analyzed, developed, tested, and implemented microservices software solutions with Python, Django, SQL, Heroku, AWS, Kubernetes, Docker, among others. I was also responsible for writing technical documentation. I was an active member of the Climate & Culture committee and also of the Tech Engagement committee.</p>
+                </div>
+                
+                <div class="job">
+                    <div class="job-title">SYSTEMS ANALYST <span class="job-period">04/2015 - 12/2019</span></div>
+                    <div class="job-company">Sisaudi, Curitiba-BR</div>
+                    <p>Training clients on Viasoft systems, developing custom reports in Delphi/SQL. Maintenance of Firebird and Oracle databases. System homologation with the main banks in the country, tax configuration (PIS, COFINS, ICMS, IPI, etc.). System presentations at fairs and events. Employee training.</p>
+                </div>
+                
+                <div class="job">
+                    <div class="job-title">INFRASTRUCTURE SUPPORT INTERN <span class="job-period">10/2014 - 03/2015</span></div>
+                    <div class="job-company">RIC TV, Curitiba-BR</div>
+                    <p>Support for maintenance, configuration, and installation of software and hardware for Mac workstations and servers.</p>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h3 class="section-title">Education</h3>
+                <div class="job">
+                    <div class="job-title">Associate Degree, Systems Analysis and Development <span class="job-period">02/2014 – 12/2017</span></div>
+                    <div class="job-company">Universidade Positivo, Curitiba-BR</div>
+                    <p>Course focused on analysis and development of computational solutions. In the analysis part, I was taught to identify the client's real needs and to design computational solutions that consider architectural issues such as networks, operating systems, databases, and security. Regarding development, I had contact with different programming languages, such as C, Java, Java Web, ASP.Net, and C#. This enabled the construction of corporate applications on different technological platforms, such as Web and Mobile Devices. Software quality aspects were also addressed, as the analysis and development process will only be effective if we apply techniques and models proposed by Software Engineering.</p>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h3 class="section-title">Additional Information</h3>
+                <p>Volunteer work as a mentor and organizer. Pyladies is an international group that seeks to encourage women to enter the IT field through the Python language. We organize events, meetups, lectures, and similar activities on various career and Python language-related topics.</p>
+            </div>
+            
+            <div class="section">
+                <h3 class="section-title">Languages</h3>
+                <p>Portuguese: Native<br>
+                English: Intermediate<br>
+                Spanish: Intermediate</p>
+            </div>
+            
+            <div class="download-container">
+                <a href="#" class="btn-download" id="download-english">
+                    <i class="fas fa-download me-2"></i>Download PDF
+                </a>
+            </div>
+        </div>
+
+        <!-- Portuguese CV -->
+        <div class="cv-container hidden" id="portuguese-cv">
+            <div class="header">
+                <h1>Ana Paula Carneiro S. Vallejos</h1>
+                <h2>DESENVOLVEDORA BACK-END PYTHON</h2>
+            </div>
+            
+            <div class="contact-info">
+                <i class="fas fa-map-marker-alt me-1"></i> Porto - Portugal | 
+                <i class="fas fa-envelope me-1"></i> anapaulacsvallejos@gmail.com | 
+                <i class="fas fa-ring me-1"></i> Casada | 
+                <i class="fab fa-linkedin me-1"></i> linkedin.com/in/anapaulacarneiro
+            </div>
+            
+            <div class="section">
+                <h3 class="section-title">Síntese</h3>
+                <p>Nascida e criada em Curitiba, Paraná - Brasil, morando em Porto, Porto - Portugal.</p>
+                <p>Sou fã de tecnologia, gosto muito de estar em contato com pessoas e de ajudar sempre que posso. Atualmente sou desenvolvedora back-end, tenho Experiência com Python, Django e PostgreSQL aplicados a estrutura de microserviços, testes com pytest, CI/CD, aplicações da AWS (SQS, SNS, ECR, Lambda, CloudWatch, entre outros), Docker, Kubernetes, Sentry, Logentries e Github.</p>
+                <p>Sempre falo que: "É ensinando que se aprende" então estou sempre em contato com comunidades tech, dou mentoria para quem está iniciando e também gosto de compartilhar conhecimentos e aprender mais com a comunidade. Acredito ser importante incentivar devs a se comunicarem mais, para que percebam o quanto isso muda as nossas vidas, nossa percepção social e a visão sobre nós mesmos.</p>
+            </div>
+            
+            <div class="section">
+                <h3 class="section-title">Competências</h3>
+                <div class="skills-list">
+                    <div class="skill-item">Python</div>
+                    <div class="skill-item">Django</div>
+                    <div class="skill-item">Postgres</div>
+                    <div class="skill-item">SQL</div>
+                    <div class="skill-item">Git</div>
+                    <div class="skill-item">Pytest</div>
+                    <div class="skill-item">Docker</div>
+                    <div class="skill-item">Heroku</div>
+                    <div class="skill-item">AWS</div>
+                    <div class="skill-item">Sentry</div>
+                    <div class="skill-item">Logentries</div>
+                    <div class="skill-item">Kubernetes</div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h3 class="section-title">Experiência</h3>
+                
+                <div class="job">
+                    <div class="job-title">HELP DESK <span class="job-period">06/2024 - Atual</span></div>
+                    <div class="job-company">Monteiro Ribas Embalagens, Porto - PT</div>
+                    <p>Suporte para sistema ERP Sistrade, desenvolvimento de relatórios personalizados usando SQL e manutenção de banco de dados SQL Server.</p>
+                </div>
+                
+                <div class="job">
+                    <div class="job-title">CLOUD ENGINEER <span class="job-period">07/2022 - 12/2022</span></div>
+                    <div class="job-company">Latitudde - Digital Enablers, Porto - PT</div>
+                    <p>Projeto para cliente do setor de saúde, utilizando C#, Python, Azure e APIGee em suas aplicações. Criação e ajuste de documentação com o uso do padrão OpenAPI e Swagger. Em alguns projetos internos, foi utilizado Django, PostgreSQL, entre outros.</p>
+                </div>
+                
+                <div class="job">
+                    <div class="job-title">BACKEND DEVELOPER <span class="job-period">06/2021 - 02/2022</span></div>
+                    <div class="job-company">Bycoders_, Curitiba-BR</div>
+                    <p>Analisar, desenvolver, testar e implementar soluções de software; Escrever/editar documentações de projetos. Desenvolvimento focado em backend Python, em um projeto com Django Rest Framework, para ser consumido por um aplicativo mobile do cliente (Instituto Trata Fisioterapia), onde foi feito tratamento e analise de imagens.</p>
+                </div>
+                
+                <div class="job">
+                    <div class="job-title">BACKEND DEVELOPER <span class="job-period">07/2020 - 05/2021</span></div>
+                    <div class="job-company">Olist, Curitiba-BR</div>
+                    <p>Enquanto integrante do time de logística, foi possível analisar, desenvolver, testar e implementar soluções de software de micro-serviços com Python, Django, SQL, Heroku, AWS, Kubernetes, Docker, entre outros. Além de ser responsável também por redigir documentações técnicas. Fui membra ativa do comitê de Clima & Cultura e também do de Engajamento Tech.</p>
+                </div>
+                
+                <div class="job">
+                    <div class="job-title">ANALISTA DE SISTEMAS <span class="job-period">04/2015 - 12/2019</span></div>
+                    <div class="job-company">Sisaudi, Curitiba-BR</div>
+                    <p>Treinamento dos sistemas Viasoft para os clientes, desenvolvimento de relatórios personalizados em Delphi/SQL. Manutenção de banco de dados Firebird e Oracle. Homologação do sistema com os principais bancos do país, configuração de tributação (PIS, COFINS, ICMS, IPI, etc.). Apresentação dos sistemas em feiras e eventos. Treinamento de funcionários.</p>
+                </div>
+                
+                <div class="job">
+                    <div class="job-title">ESTÁGIO SUPORTE DE INFRAESTRUTURA <span class="job-period">10/2014 - 03/2015</span></div>
+                    <div class="job-company">RIC TV, Curitiba-BR</div>
+                    <p>Suporte para manutenção, configuração e instalação de software e hardware das ilhas e servidores Mac.</p>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h3 class="section-title">Educação</h3>
+                <div class="job">
+                    <div class="job-title">Tecnólogo, Análise e Desenvolvimento de Sistemas <span class="job-period">02/2014 – 12/2017</span></div>
+                    <div class="job-company">Universidade Positivo, Curitiba-BR</div>
+                    <p>Curso bem focado em análise e no desenvolvimento de soluções computacionais. Na parte de análise, foi ensinado a identificar as reais necessidades do cliente e a projetar soluções computacionais que considere questões arquiteturais, tais como: redes, sistemas operacionais, banco de dados e segurança. Já em relação ao desenvolvimento, foi possível ter contato com diferentes linguagens de programação, tais como: C, Java, Java Web, ASP.Net, e C#. Que possibilita a construção de aplicações coorporativas em distintas plataformas tecnológicas, tais como Web e Dispositivos Móveis. Também foram abordados aspectos de qualidade de software pois o processo de análise e de desenvolvimento somente será efetivo se aplicarmos técnicas e modelos propostos pela Engenharia de Software.</p>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h3 class="section-title">Informações Adicionais</h3>
+                <p>Trabalho voluntário como mentora e organizadora. O Pyladies é um grupo internacional que busca incentivar mulheres a entrar na área de TI por meio da linguagem Python. Organizamos eventos, meetups, palestras e afins sobre diversos assuntos relacionados a carreira e a linguagem Python.</p>
+            </div>
+            
+            <div class="section">
+                <h3 class="section-title">Idiomas</h3>
+                <p>Português: nativo<br>
+                Inglês: Intermediário<br>
+                Espanhol: Intermediário</p>
+            </div>
+            
+            <div class="download-container">
+                <a href="#" class="btn-download" id="download-portuguese">
+                    <i class="fas fa-download me-2"></i>Baixar PDF
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap and JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const btnEnglish = document.getElementById('btn-english');
+            const btnPortuguese = document.getElementById('btn-portuguese');
+            const englishCV = document.getElementById('english-cv');
+            const portugueseCV = document.getElementById('portuguese-cv');
+            const downloadEnglish = document.getElementById('download-english');
+            const downloadPortuguese = document.getElementById('download-portuguese');
+            
+            btnEnglish.addEventListener('click', function() {
+                englishCV.classList.remove('hidden');
+                portugueseCV.classList.add('hidden');
+                btnEnglish.classList.add('btn-primary');
+                btnEnglish.classList.remove('btn-outline-primary');
+                btnPortuguese.classList.remove('btn-primary');
+                btnPortuguese.classList.add('btn-outline-primary');
+            });
+            
+            btnPortuguese.addEventListener('click', function() {
+                englishCV.classList.add('hidden');
+                portugueseCV.classList.remove('hidden');
+                btnPortuguese.classList.add('btn-primary');
+                btnPortuguese.classList.remove('btn-outline-primary');
+                btnEnglish.classList.remove('btn-primary');
+                btnEnglish.classList.add('btn-outline-primary');
+            });
+            
+            // Função melhorada para geração de PDF
+            function generatePDF(element, filename) {
+                // Clonar o elemento para não modificar o original na página
+                const pdfContent = element.cloneNode(true);
+                
+                // Remover o botão de download do PDF
+                pdfContent.querySelector('.download-container').remove();
+                
+                // Ajustes de estilo para melhor renderização no PDF
+                const style = document.createElement('style');
+                style.textContent = `
+                    .cv-container { margin: 0; padding: 15px; box-shadow: none; }
+                    .section { page-break-inside: avoid; }
+                    p { margin-bottom: 8px; }
+                    .job { page-break-inside: avoid; }
+                `;
+                pdfContent.appendChild(style);
+                
+                // Criar um contêiner temporário para o PDF
+                const tempContainer = document.createElement('div');
+                tempContainer.style.position = 'absolute';
+                tempContainer.style.left = '-9999px';
+                tempContainer.appendChild(pdfContent);
+                document.body.appendChild(tempContainer);
+                
+                // Configurações do PDF
+                const opt = {
+                    margin: [15, 15, 15, 15],
+                    filename: filename,
+                    image: { type: 'jpeg', quality: 0.98 },
+                    html2canvas: { 
+                        scale: 2,
+                        useCORS: true,
+                        letterRendering: true
+                    },
+                    jsPDF: { 
+                        unit: 'mm', 
+                        format: 'a4', 
+                        orientation: 'portrait'
+                    },
+                    pagebreak: { mode: 'avoid-all', before: '.section-title' }
+                };
+                
+                // Gerar e salvar o PDF
+                html2pdf().from(pdfContent).set(opt).save().then(() => {
+                    // Remover o contêiner temporário após a geração do PDF
+                    document.body.removeChild(tempContainer);
+                });
+            }
+            
+            // PDF Download para versão em inglês
+            downloadEnglish.addEventListener('click', function(e) {
+                e.preventDefault();
+                generatePDF(englishCV, 'Ana_Paula_Vallejos_CV_English.pdf');
+            });
+            
+            // PDF Download para versão em português
+            downloadPortuguese.addEventListener('click', function(e) {
+                e.preventDefault();
+                generatePDF(portugueseCV, 'Ana_Paula_Vallejos_CV_Portugues.pdf');
+            });
+        });
+    </script>
+</body>
+</html>
