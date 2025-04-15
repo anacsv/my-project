@@ -2,10 +2,10 @@
 
 <html lang="pt">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Ana Paula Carneiro - Desenvolvedora Python</title>
-<style>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Ana Paula Carneiro - Desenvolvedora Python</title>
+    <style>
         @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
 
         :root {
@@ -374,232 +374,262 @@
         }
     </style>
 </head>
-<body lang="pt">
-<div class="language-toggle">
-<button class="language-btn" id="languageToggle">English</button>
-</div>
-<div class="clouds" id="clouds"></div>
-<div class="container">
-<div class="header">
-<!-- Usando a foto do GitHub -->
-<a href="https://github.com/anacsv" target="_blank">
-<img alt="Foto de Ana Paula Carneiro" class="profile-pic floating" src="https://avatars.githubusercontent.com/u/67640535?v=4"/>
-</a>
-<h1 class="name">Ana Paula Carneiro S. Vallejos</h1>
-<div class="pt-content">
-<h2 class="title">DESENVOLVEDORA PYTHON BACK-END</h2>
-</div>
-<div class="en-content">
-<h2 class="title">PYTHON BACK-END DEVELOPER</h2>
-</div>
-<div class="contact-info">
-<div class="contact-item">Porto, Portugal</div>
+<script>
+    function openEnglishCV() {
+        // Clona todo o HTML
+        const clonedDoc = document.documentElement.cloneNode(true);
 
-<div class="contact-item">anapaulacsvallejos@gmail.com</div>
-<div class="contact-item"><a href="https://linkedin.com/in/anapaulacarneiro" target="_blank">linkedin.com/in/anapaulacarneiro</a></div>
-<div class="contact-item"><a href="https://github.com/anacsv" target="_blank">github.com/anacsv</a></div>
-</div>
-</div>
-<!-- Conteúdo em Português -->
-<div class="pt-content">
-<div class="section">
-<h3 class="section-title">Síntese</h3>
-<p>Nascida e criada em Curitiba, Paraná - Brasil, morando em Porto, Porto - Portugal. Sou fã de tecnologia, gosto muito de estar em contato com pessoas e de ajudar sempre que posso.</p>
-<p>Atualmente sou desenvolvedora back-end, tenho Experiência com Python, Django e PostgreSQL aplicados a estrutura de microserviços, testes com pytest, CI/CD, aplicações da AWS (SQS, SNS, ECR, Lambda, CloudWatch, entre outros), Docker, Kubernetes, Sentry, Logentries e Github.</p>
-<p>Sempre falo que: "É ensinando que se aprende" então estou sempre em contato com comunidades tech, dou mentoria para quem está iniciando e também gosto de compartilhar conhecimentos e aprender mais com a comunidade. Acredito ser importante incentivar devs a se comunicarem mais, para que percebam o quanto isso muda as nossas vidas, nossa percepção social e a visão sobre nós mesmos.</p>
-</div>
-<div class="section">
-<h3 class="section-title">Competências</h3>
-<div class="skills">
-<div class="skill">Python</div>
-<div class="skill">Django</div>
-<div class="skill">Postgres</div>
-<div class="skill">SQL</div>
-<div class="skill">Git</div>
-<div class="skill">Pytest</div>
-<div class="skill">Docker</div>
-<div class="skill">Heroku</div>
-<div class="skill">AWS</div>
-<div class="skill">Sentry</div>
-<div class="skill">Logentries</div>
-<div class="skill">Kubernetes</div>
-</div>
-</div>
-<div class="section">
-<h3 class="section-title">Experiência</h3>
-<div class="job">
-<div>
-<span class="job-title">HELP DESK</span> |
+        // Define o idioma como inglês
+        clonedDoc.setAttribute('lang', 'en');
+
+        // Remove o botão extra para evitar loops
+        clonedDoc.querySelectorAll('button[onclick="openEnglishCV()"]').forEach(el => el.remove());
+
+        // Remove o conteúdo em português
+        clonedDoc.querySelectorAll('.pt-content').forEach(el => el.remove());
+
+        // Garante que apenas o inglês fique visível
+        clonedDoc.querySelectorAll('.en-content').forEach(el => el.style.display = 'block');
+
+        // Abre nova aba com o CV em inglês
+        const newWin = window.open('', '_blank');
+        newWin.document.write('<!DOCTYPE html>' + clonedDoc.outerHTML);
+        newWin.document.close();
+    }
+</script>
+
+<body lang="pt">
+    <div class="language-toggle">
+        <button class="language-btn" id="languageToggle">English</button>
+    </div>
+    <div class="clouds" id="clouds"></div>
+    <div class="container">
+        <div class="header">
+            <!-- Usando a foto do GitHub -->
+            <a href="https://github.com/anacsv" target="_blank">
+                <img alt="Foto de Ana Paula Carneiro" class="profile-pic floating" src="https://avatars.githubusercontent.com/u/67640535?v=4" />
+            </a>
+            <h1 class="name">Ana Paula Carneiro S. Vallejos</h1>
+            <div class="pt-content">
+                <h2 class="title">DESENVOLVEDORA PYTHON BACK-END</h2>
+            </div>
+            <div class="en-content">
+                <h2 class="title">PYTHON BACK-END DEVELOPER</h2>
+            </div>
+            <div class="contact-info">
+                <div class="contact-item">Porto, Portugal</div>
+
+                <div class="contact-item">anapaulacsvallejos@gmail.com</div>
+                <div class="contact-item"><a href="https://linkedin.com/in/anapaulacarneiro" target="_blank">linkedin.com/in/anapaulacarneiro</a></div>
+                <div class="contact-item"><a href="https://github.com/anacsv" target="_blank">github.com/anacsv</a></div>
+            </div>
+        </div>
+        <!-- Conteúdo em Português -->
+        <div class="pt-content">
+            <div class="section">
+                <h3 class="section-title">Síntese</h3>
+                <p>Nascida e criada em Curitiba, Paraná - Brasil, morando em Porto, Porto - Portugal. Sou fã de tecnologia, gosto muito de estar em contato com pessoas e de ajudar sempre que posso.</p>
+                <p>Atualmente sou desenvolvedora back-end, tenho Experiência com Python, Django e PostgreSQL aplicados a estrutura de microserviços, testes com pytest, CI/CD, aplicações da AWS (SQS, SNS, ECR, Lambda, CloudWatch, entre outros), Docker, Kubernetes, Sentry, Logentries e Github.</p>
+                <p>Sempre falo que: "É ensinando que se aprende" então estou sempre em contato com comunidades tech, dou mentoria para quem está iniciando e também gosto de compartilhar conhecimentos e aprender mais com a comunidade. Acredito ser importante incentivar devs a se comunicarem mais, para que percebam o quanto isso muda as nossas vidas, nossa percepção social e a visão sobre nós mesmos.</p>
+            </div>
+            <div class="section">
+                <h3 class="section-title">Competências</h3>
+                <div class="skills">
+                    <div class="skill">Python</div>
+                    <div class="skill">Django</div>
+                    <div class="skill">Postgres</div>
+                    <div class="skill">SQL</div>
+                    <div class="skill">Git</div>
+                    <div class="skill">Pytest</div>
+                    <div class="skill">Docker</div>
+                    <div class="skill">Heroku</div>
+                    <div class="skill">AWS</div>
+                    <div class="skill">Sentry</div>
+                    <div class="skill">Logentries</div>
+                    <div class="skill">Kubernetes</div>
+                </div>
+            </div>
+            <div class="section">
+                <h3 class="section-title">Experiência</h3>
+                <div class="job">
+                    <div>
+                        <span class="job-title">HELP DESK</span> |
                         <span class="job-period">06/2024 - Atual</span>
-</div>
-<div class="job-company">Monteiro Ribas Embalagens, Porto - PT</div>
-<p class="job-description">Suporte para sistema ERP Sistrade, desenvolvimento de relatórios personalizados usando SQL e manutenção de banco de dados SQL Server.</p>
-</div>
-<div class="job">
-<div>
-<span class="job-title">CLOUD ENGINEER</span> |
+                    </div>
+                    <div class="job-company">Monteiro Ribas Embalagens, Porto - PT</div>
+                    <p class="job-description">Suporte para sistema ERP Sistrade, desenvolvimento de relatórios personalizados usando SQL e manutenção de banco de dados SQL Server.</p>
+                </div>
+                <div class="job">
+                    <div>
+                        <span class="job-title">CLOUD ENGINEER</span> |
                         <span class="job-period">07/2022 - 12/2022</span>
-</div>
-<div class="job-company">Latitudde - Digital Enablers, Porto - PT</div>
-<p class="job-description">Projeto para cliente do setor de saúde, utilizando C#, Python, Azure e APIGee em suas aplicações. Criação e ajuste de documentação com o uso do padrão OpenAPI e Swagger. Em alguns projetos internos, foi utilizado Django, PostgreSQL, entre outros.</p>
-</div>
-<div class="job">
-<div>
-<span class="job-title">BACKEND DEVELOPER</span> |
+                    </div>
+                    <div class="job-company">Latitudde - Digital Enablers, Porto - PT</div>
+                    <p class="job-description">Projeto para cliente do setor de saúde, utilizando C#, Python, Azure e APIGee em suas aplicações. Criação e ajuste de documentação com o uso do padrão OpenAPI e Swagger. Em alguns projetos internos, foi utilizado Django, PostgreSQL, entre outros.</p>
+                </div>
+                <div class="job">
+                    <div>
+                        <span class="job-title">BACKEND DEVELOPER</span> |
                         <span class="job-period">06/2021 - 02/2022</span>
-</div>
-<div class="job-company">Bycoders_, Curitiba-BR</div>
-<p class="job-description">Analisar, desenvolver, testar e implementar soluções de software; Escrever/editar documentações de projetos. Desenvolvimento focado em backend Python, em um projeto com Django Rest Framework, para ser consumido por um aplicativo mobile do cliente (Instituto Trata Fisioterapia), onde foi feito tratamento e analise de imagens.</p>
-</div>
-<div class="job">
-<div>
-<span class="job-title">BACKEND DEVELOPER</span> |
+                    </div>
+                    <div class="job-company">Bycoders_, Curitiba-BR</div>
+                    <p class="job-description">Analisar, desenvolver, testar e implementar soluções de software; Escrever/editar documentações de projetos. Desenvolvimento focado em backend Python, em um projeto com Django Rest Framework, para ser consumido por um aplicativo mobile do cliente (Instituto Trata Fisioterapia), onde foi feito tratamento e analise de imagens.</p>
+                </div>
+                <div class="job">
+                    <div>
+                        <span class="job-title">BACKEND DEVELOPER</span> |
                         <span class="job-period">07/2020 - 05/2021</span>
-</div>
-<div class="job-company">Olist, Curitiba-BR</div>
-<p class="job-description">Enquanto integrante do time de logística, foi possível analisar, desenvolver, testar e implementar soluções de software de micro-serviços com Python, Django, SQL, Heroku, AWS, Kubernetes, Docker, entre outros. Além de ser responsável também por redigir documentações técnicas. Fui membra ativa do comitê de Clima &amp; Cultura e também do de Engajamento Tech.</p>
-</div>
-<div class="job">
-<div>
-<span class="job-title">ANALISTA DE SISTEMAS</span> |
+                    </div>
+                    <div class="job-company">Olist, Curitiba-BR</div>
+                    <p class="job-description">Enquanto integrante do time de logística, foi possível analisar, desenvolver, testar e implementar soluções de software de micro-serviços com Python, Django, SQL, Heroku, AWS, Kubernetes, Docker, entre outros. Além de ser responsável também por redigir documentações técnicas. Fui membra ativa do comitê de Clima &amp; Cultura e também do de Engajamento Tech.</p>
+                </div>
+                <div class="job">
+                    <div>
+                        <span class="job-title">ANALISTA DE SISTEMAS</span> |
                         <span class="job-period">04/2015 - 12/2019</span>
-</div>
-<div class="job-company">Sisaudi, Curitiba-BR</div>
-<p class="job-description">Treinamento dos sistemas Viasoft para os clientes, desenvolvimento de relatórios personalizados em Delphi/SQL. Manutenção de banco de dados Firebird e Oracle. Homologação do sistema com os principais bancos do país, configuração de tributação (PIS, COFINS, ICMS, IPI, etc.). Apresentação dos sistemas em feiras e eventos. Treinamento de funcionários.</p>
-</div>
-<div class="job">
-<div>
-<span class="job-title">ESTÁGIO SUPORTE DE INFRAESTRUTURA</span> |
+                    </div>
+                    <div class="job-company">Sisaudi, Curitiba-BR</div>
+                    <p class="job-description">Treinamento dos sistemas Viasoft para os clientes, desenvolvimento de relatórios personalizados em Delphi/SQL. Manutenção de banco de dados Firebird e Oracle. Homologação do sistema com os principais bancos do país, configuração de tributação (PIS, COFINS, ICMS, IPI, etc.). Apresentação dos sistemas em feiras e eventos. Treinamento de funcionários.</p>
+                </div>
+                <div class="job">
+                    <div>
+                        <span class="job-title">ESTÁGIO SUPORTE DE INFRAESTRUTURA</span> |
                         <span class="job-period">10/2014 - 03/2015</span>
-</div>
-<div class="job-company">RIC TV, Curitiba-BR</div>
-<p class="job-description">Suporte para manutenção, configuração e instalação de software e hardware das ilhas e servidores Mac.</p>
-</div>
-</div>
-<div class="section">
-<h3 class="section-title">Educação</h3>
-<div class="job">
-<div>
-<span class="job-title">Tecnólogo, Análise e Desenvolvimento de Sistemas</span> |
+                    </div>
+                    <div class="job-company">RIC TV, Curitiba-BR</div>
+                    <p class="job-description">Suporte para manutenção, configuração e instalação de software e hardware das ilhas e servidores Mac.</p>
+                </div>
+            </div>
+            <div class="section">
+                <h3 class="section-title">Educação</h3>
+                <div class="job">
+                    <div>
+                        <span class="job-title">Tecnólogo, Análise e Desenvolvimento de Sistemas</span> |
                         <span class="job-period">02/2014 – 12/2017</span>
-</div>
-<div class="job-company">Universidade Positivo, Curitiba-BR</div>
-<p class="job-description">Curso focado em análise e desenvolvimento de soluções computacionais. Na parte de análise, foi ensinado a identificar as reais necessidades do cliente e a projetar soluções computacionais que considere questões arquiteturais, tais como: redes, sistemas operacionais, banco de dados e segurança. No desenvolvimento, foi possível ter contato com diferentes linguagens de programação: C, Java, Java Web, ASP.Net, e C#. Que possibilita a construção de aplicações coorporativas em distintas plataformas tecnológicas.</p>
-</div>
-</div>
-<div class="section">
-<h3 class="section-title">Informações Adicionais</h3>
-<p>Trabalho voluntário como mentora e organizadora. O Pyladies é um grupo internacional que busca incentivar mulheres a entrar na área de TI por meio da linguagem Python. Organizamos eventos, meetups, palestras e afins sobre diversos assuntos relacionados a carreira e a linguagem Python.</p>
-</div>
-<div class="section">
-<h3 class="section-title">Idiomas</h3>
-<div class="skills">
-<div class="skill">Português: nativo</div>
-<div class="skill">Inglês: Intermediário</div>
-<div class="skill">Espanhol: Intermediário</div>
-</div>
-</div>
-</div>
-<!-- Conteúdo em Inglês -->
-<div class="en-content">
-<div class="section">
-<h3 class="section-title">Summary</h3>
-<p>Born and raised in Curitiba, Paraná - Brazil, currently living in Porto, Portugal. I'm a technology enthusiast who enjoys connecting with people and helping whenever possible.</p>
-<p>I'm currently a back-end developer with experience in Python, Django, and PostgreSQL applied to microservices architecture, pytest testing, CI/CD, AWS applications (SQS, SNS, ECR, Lambda, CloudWatch, among others), Docker, Kubernetes, Sentry, Logentries, and Github.</p>
-<p>I always say: "By teaching, you learn," so I'm constantly engaging with tech communities, mentoring beginners, and sharing knowledge while learning from the community. I believe it's important to encourage developers to communicate more, so they can realize how much this changes our lives, our social perception, and our self-view.</p>
-</div>
-<div class="section">
-<h3 class="section-title">Skills</h3>
-<div class="skills">
-<div class="skill">Python</div>
-<div class="skill">Django</div>
-<div class="skill">Postgres</div>
-<div class="skill">SQL</div>
-<div class="skill">Git</div>
-<div class="skill">Pytest</div>
-<div class="skill">Docker</div>
-<div class="skill">Heroku</div>
-<div class="skill">AWS</div>
-<div class="skill">Sentry</div>
-<div class="skill">Logentries</div>
-<div class="skill">Kubernetes</div>
-</div>
-</div>
-<div class="section">
-<h3 class="section-title">Experience</h3>
-<div class="job">
-<div>
-<span class="job-title">HELP DESK</span> |
+                    </div>
+                    <div class="job-company">Universidade Positivo, Curitiba-BR</div>
+                    <p class="job-description">Curso focado em análise e desenvolvimento de soluções computacionais. Na parte de análise, foi ensinado a identificar as reais necessidades do cliente e a projetar soluções computacionais que considere questões arquiteturais, tais como: redes, sistemas operacionais, banco de dados e segurança. No desenvolvimento, foi possível ter contato com diferentes linguagens de programação: C, Java, Java Web, ASP.Net, e C#. Que possibilita a construção de aplicações coorporativas em distintas plataformas tecnológicas.</p>
+                </div>
+            </div>
+            <div class="section">
+                <h3 class="section-title">Informações Adicionais</h3>
+                <p>Trabalho voluntário como mentora e organizadora. O Pyladies é um grupo internacional que busca incentivar mulheres a entrar na área de TI por meio da linguagem Python. Organizamos eventos, meetups, palestras e afins sobre diversos assuntos relacionados a carreira e a linguagem Python.</p>
+            </div>
+            <div class="section">
+                <h3 class="section-title">Idiomas</h3>
+                <div class="skills">
+                    <div class="skill">Português: nativo</div>
+                    <div class="skill">Inglês: Intermediário</div>
+                    <div class="skill">Espanhol: Intermediário</div>
+                </div>
+            </div>
+        </div>
+        <!-- Conteúdo em Inglês -->
+        <div class="en-content">
+            <div class="section">
+                <h3 class="section-title">Summary</h3>
+                <p>Born and raised in Curitiba, Paraná - Brazil, currently living in Porto, Portugal. I'm a technology enthusiast who enjoys connecting with people and helping whenever possible.</p>
+                <p>I'm currently a back-end developer with experience in Python, Django, and PostgreSQL applied to microservices architecture, pytest testing, CI/CD, AWS applications (SQS, SNS, ECR, Lambda, CloudWatch, among others), Docker, Kubernetes, Sentry, Logentries, and Github.</p>
+                <p>I always say: "By teaching, you learn," so I'm constantly engaging with tech communities, mentoring beginners, and sharing knowledge while learning from the community. I believe it's important to encourage developers to communicate more, so they can realize how much this changes our lives, our social perception, and our self-view.</p>
+            </div>
+            <div class="section">
+                <h3 class="section-title">Skills</h3>
+                <div class="skills">
+                    <div class="skill">Python</div>
+                    <div class="skill">Django</div>
+                    <div class="skill">Postgres</div>
+                    <div class="skill">SQL</div>
+                    <div class="skill">Git</div>
+                    <div class="skill">Pytest</div>
+                    <div class="skill">Docker</div>
+                    <div class="skill">Heroku</div>
+                    <div class="skill">AWS</div>
+                    <div class="skill">Sentry</div>
+                    <div class="skill">Logentries</div>
+                    <div class="skill">Kubernetes</div>
+                </div>
+            </div>
+            <div class="section">
+                <h3 class="section-title">Experience</h3>
+                <div class="job">
+                    <div>
+                        <span class="job-title">HELP DESK</span> |
                         <span class="job-period">06/2024 - Present</span>
-</div>
-<div class="job-company">Monteiro Ribas Embalagens, Porto - PT</div>
-<p class="job-description">Support for Sistrade ERP system, development of customized reports using SQL, and SQL Server database maintenance.</p>
-</div>
-<div class="job">
-<div>
-<span class="job-title">CLOUD ENGINEER</span> |
+                    </div>
+                    <div class="job-company">Monteiro Ribas Embalagens, Porto - PT</div>
+                    <p class="job-description">Support for Sistrade ERP system, development of customized reports using SQL, and SQL Server database maintenance.</p>
+                </div>
+                <div class="job">
+                    <div>
+                        <span class="job-title">CLOUD ENGINEER</span> |
                         <span class="job-period">07/2022 - 12/2022</span>
-</div>
-<div class="job-company">Latitudde - Digital Enablers, Porto - PT</div>
-<p class="job-description">Project for a healthcare sector client, using C#, Python, Azure, and APIGee in their applications. Creation and adjustment of documentation using OpenAPI and Swagger standards. In some internal projects, Django and PostgreSQL were used, among other technologies.</p>
-</div>
-<div class="job">
-<div>
-<span class="job-title">BACKEND DEVELOPER</span> |
+                    </div>
+                    <div class="job-company">Latitudde - Digital Enablers, Porto - PT</div>
+                    <p class="job-description">Project for a healthcare sector client, using C#, Python, Azure, and APIGee in their applications. Creation and adjustment of documentation using OpenAPI and Swagger standards. In some internal projects, Django and PostgreSQL were used, among other technologies.</p>
+                </div>
+                <div class="job">
+                    <div>
+                        <span class="job-title">BACKEND DEVELOPER</span> |
                         <span class="job-period">06/2021 - 02/2022</span>
-</div>
-<div class="job-company">Bycoders_, Curitiba-BR</div>
-<p class="job-description">Analyzing, developing, testing, and implementing software solutions; Writing/editing project documentation. Development focused on Python backend, in a project with Django Rest Framework, to be consumed by a client's mobile application (Instituto Trata Fisioterapia), where image treatment and analysis were performed.</p>
-</div>
-<div class="job">
-<div>
-<span class="job-title">BACKEND DEVELOPER</span> |
+                    </div>
+                    <div class="job-company">Bycoders_, Curitiba-BR</div>
+                    <p class="job-description">Analyzing, developing, testing, and implementing software solutions; Writing/editing project documentation. Development focused on Python backend, in a project with Django Rest Framework, to be consumed by a client's mobile application (Instituto Trata Fisioterapia), where image treatment and analysis were performed.</p>
+                </div>
+                <div class="job">
+                    <div>
+                        <span class="job-title">BACKEND DEVELOPER</span> |
                         <span class="job-period">07/2020 - 05/2021</span>
-</div>
-<div class="job-company">Olist, Curitiba-BR</div>
-<p class="job-description">As a member of the logistics team, I analyzed, developed, tested, and implemented microservices software solutions with Python, Django, SQL, Heroku, AWS, Kubernetes, Docker, among others. I was also responsible for writing technical documentation. I was an active member of the Climate &amp; Culture committee and the Tech Engagement committee.</p>
-</div>
-<div class="job">
-<div>
-<span class="job-title">SYSTEMS ANALYST</span> |
+                    </div>
+                    <div class="job-company">Olist, Curitiba-BR</div>
+                    <p class="job-description">As a member of the logistics team, I analyzed, developed, tested, and implemented microservices software solutions with Python, Django, SQL, Heroku, AWS, Kubernetes, Docker, among others. I was also responsible for writing technical documentation. I was an active member of the Climate &amp; Culture committee and the Tech Engagement committee.</p>
+                </div>
+                <div class="job">
+                    <div>
+                        <span class="job-title">SYSTEMS ANALYST</span> |
                         <span class="job-period">04/2015 - 12/2019</span>
-</div>
-<div class="job-company">Sisaudi, Curitiba-BR</div>
-<p class="job-description">Training clients on Viasoft systems, developing customized reports in Delphi/SQL. Maintenance of Firebird and Oracle databases. Homologation of the system with the main banks in the country, tax configuration (PIS, COFINS, ICMS, IPI, etc.). Presentation of systems at fairs and events. Training employees.</p>
-</div>
-<div class="job">
-<div>
-<span class="job-title">INFRASTRUCTURE SUPPORT INTERN</span> |
+                    </div>
+                    <div class="job-company">Sisaudi, Curitiba-BR</div>
+                    <p class="job-description">Training clients on Viasoft systems, developing customized reports in Delphi/SQL. Maintenance of Firebird and Oracle databases. Homologation of the system with the main banks in the country, tax configuration (PIS, COFINS, ICMS, IPI, etc.). Presentation of systems at fairs and events. Training employees.</p>
+                </div>
+                <div class="job">
+                    <div>
+                        <span class="job-title">INFRASTRUCTURE SUPPORT INTERN</span> |
                         <span class="job-period">10/2014 - 03/2015</span>
-</div>
-<div class="job-company">RIC TV, Curitiba-BR</div>
-<p class="job-description">Support for maintenance, configuration, and installation of software and hardware for Mac workstations and servers.</p>
-</div>
-</div>
-<div class="section">
-<h3 class="section-title">Education</h3>
-<div class="job">
-<div>
-<span class="job-title">Bachelor's Degree, Systems Analysis and Development</span> |
+                    </div>
+                    <div class="job-company">RIC TV, Curitiba-BR</div>
+                    <p class="job-description">Support for maintenance, configuration, and installation of software and hardware for Mac workstations and servers.</p>
+                </div>
+            </div>
+            <div class="section">
+                <h3 class="section-title">Education</h3>
+                <div class="job">
+                    <div>
+                        <span class="job-title">Bachelor's Degree, Systems Analysis and Development</span> |
                         <span class="job-period">02/2014 – 12/2017</span>
-</div>
-<div class="job-company">Universidade Positivo, Curitiba-BR</div>
-<p class="job-description">Course focused on analysis and development of computational solutions. In the analysis part, I learned to identify the real needs of the client and to design computational solutions that consider architectural issues, such as networks, operating systems, databases, and security. In development, I had contact with different programming languages: C, Java, Java Web, ASP.Net, and C#, which enables the construction of corporate applications on different technological platforms.</p>
-</div>
-</div>
-<div class="section">
-<h3 class="section-title">Additional Information</h3>
-<p>Volunteer work as a mentor and organizer. Pyladies is an international group that seeks to encourage women to enter the IT field through the Python language. We organize events, meetups, lectures, and more about various subjects related to career and the Python language.</p>
-</div>
-<div class="section">
-<h3 class="section-title">Languages</h3>
-<div class="skills">
-<div class="skill">Portuguese: Native</div>
-<div class="skill">English: Intermediate</div>
-<div class="skill">Spanish: Intermediate</div>
-</div>
-</div>
-</div>
-</div>
-<div class="totoro" id="totoro"></div>
-<script></script></body></html>
+                    </div>
+                    <div class="job-company">Universidade Positivo, Curitiba-BR</div>
+                    <p class="job-description">Course focused on analysis and development of computational solutions. In the analysis part, I learned to identify the real needs of the client and to design computational solutions that consider architectural issues, such as networks, operating systems, databases, and security. In development, I had contact with different programming languages: C, Java, Java Web, ASP.Net, and C#, which enables the construction of corporate applications on different technological platforms.</p>
+                </div>
+            </div>
+            <div class="section">
+                <h3 class="section-title">Additional Information</h3>
+                <p>Volunteer work as a mentor and organizer. Pyladies is an international group that seeks to encourage women to enter the IT field through the Python language. We organize events, meetups, lectures, and more about various subjects related to career and the Python language.</p>
+            </div>
+            <div class="section">
+                <h3 class="section-title">Languages</h3>
+                <div class="skills">
+                    <div class="skill">Portuguese: Native</div>
+                    <div class="skill">English: Intermediate</div>
+                    <div class="skill">Spanish: Intermediate</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="totoro" id="totoro"></div>
+    <script></script>
+    <script>
+        document.getElementById("languageToggle").addEventListener("click", openEnglishCV);
+    </script>
+
+</body>
+</html>
