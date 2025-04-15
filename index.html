@@ -1,510 +1,605 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+
+<html lang="pt">
 <head>
-    <meta charset="UTF-8">
-    <title>CV Tetris - Ana Paula Carneiro</title>
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ana Paula Carneiro - Desenvolvedora Python</title>
+<style>
+        @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
+
         :root {
-            --tetris-i: #31c7ef;
-            --tetris-j: #5a65ad;
-            --tetris-l: #ef7921;
-            --tetris-o: #e69500;
-            --tetris-s: #42b642;
-            --tetris-t: #ad4d9c;
-            --tetris-z: #ef2029;
-            --bg-color: #121212;
-            --text-color: #ffffff;
+            --ghibli-blue: #67a6d3;
+            --ghibli-green: #7cb571;
+            --ghibli-yellow: #ffd684;
+            --ghibli-pink: #f3a9bc;
+            --ghibli-purple: #9d81ba;
+            --ghibli-teal: #40a6a6; /* Nova cor baseada no cabelo da foto */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         body {
-            font-family: 'Courier New', monospace;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            margin: 0;
-            padding: 20px;
+            font-family: 'Nunito', sans-serif;
+            background-color: #f5f9fe;
+            color: #333;
             line-height: 1.6;
+            background-image: url('/api/placeholder/1200/300');
+            background-repeat: no-repeat;
+            background-size: 100% auto;
+            background-position: bottom;
+            background-attachment: fixed;
         }
 
         .container {
-            max-width: 800px;
+            max-width: 1000px;
             margin: 0 auto;
-            border: 4px solid #666;
             padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(107, 151, 202, 0.2);
+            margin-top: 20px;
+            margin-bottom: 40px;
             position: relative;
+            z-index: 1;
             overflow: hidden;
-            box-shadow: 0 0 20px rgba(0, 0, 255, 0.3);
         }
 
         .header {
             text-align: center;
-            margin-bottom: 40px;
+            padding: 40px 20px;
             position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            background: linear-gradient(135deg, var(--ghibli-teal), var(--ghibli-blue));
+            margin-bottom: 30px;
         }
 
-            .header h1 {
-                font-size: 36px;
-                text-transform: uppercase;
-                margin-bottom: 5px;
-                color: var(--tetris-i);
-                text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.5);
+            .header::before {
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                background: url('/api/placeholder/800/250');
+                background-size: cover;
+                background-position: center;
+                opacity: 0.3;
+                z-index: -1;
             }
 
-            .header h2 {
-                font-size: 24px;
-                color: var(--tetris-t);
-                text-transform: uppercase;
-                margin-top: 0;
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            margin: 0 auto 20px;
+            object-fit: cover;
+            position: relative;
+            z-index: 2;
+        }
+
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
             }
+
+            50% {
+                transform: translateY(-15px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        .name {
+            font-size: 2.5em;
+            margin-bottom: 5px;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .title {
+            font-size: 1.5em;
+            color: white;
+            font-weight: 400;
+            margin-bottom: 15px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        }
 
         .contact-info {
             display: flex;
-            justify-content: center;
             flex-wrap: wrap;
+            justify-content: center;
             gap: 15px;
-            margin-bottom: 20px;
+            margin-top: 20px;
         }
 
         .contact-item {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
             display: flex;
             align-items: center;
-            gap: 5px;
+            gap: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
         }
 
-        .tetris-block {
-            border: 3px solid rgba(255, 255, 255, 0.5);
-            border-radius: 4px;
-            padding: 15px;
-            margin-bottom: 20px;
+            .contact-item:hover {
+                transform: translateY(-3px);
+            }
+
+            .contact-item a {
+                text-decoration: none;
+                color: #333;
+                transition: color 0.3s;
+            }
+
+                .contact-item a:hover {
+                    color: var(--ghibli-teal);
+                }
+
+        .section {
+            margin-bottom: 30px;
             position: relative;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             overflow: hidden;
-            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
         }
 
-        .block-i {
-            background-color: var(--tetris-i);
-        }
+            .section::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 5px;
+                height: 100%;
+                background: linear-gradient(to bottom, var(--ghibli-teal), var(--ghibli-blue));
+            }
 
-        .block-j {
-            background-color: var(--tetris-j);
-        }
-
-        .block-l {
-            background-color: var(--tetris-l);
-        }
-
-        .block-o {
-            background-color: var(--tetris-o);
-        }
-
-        .block-s {
-            background-color: var(--tetris-s);
-        }
-
-        .block-t {
-            background-color: var(--tetris-t);
-        }
-
-        .block-z {
-            background-color: var(--tetris-z);
-        }
-
-        .tetris-block h3 {
-            margin-top: 0;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .tetris-shape {
-            position: absolute;
-            opacity: 0.2;
-            z-index: 0;
-        }
-
-        .tetris-block-content {
+        .section-title {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            color: var(--ghibli-teal);
             position: relative;
-            z-index: 1;
+            padding-left: 15px;
         }
 
-        .skill-list {
+        .job {
+            margin-bottom: 25px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+            .job:last-child {
+                margin-bottom: 0;
+            }
+
+            .job::before {
+                content: "";
+                position: absolute;
+                width: 12px;
+                height: 12px;
+                background-color: var(--ghibli-yellow);
+                border-radius: 50%;
+                left: -6px;
+                top: 5px;
+            }
+
+        .job-title {
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .job-company {
+            font-weight: 700;
+            color: var(--ghibli-purple);
+            margin-right: 10px;
+        }
+
+        .job-period {
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        .job-description {
+            margin-top: 8px;
+        }
+
+        .skills {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
             margin-top: 10px;
         }
 
-        .skill-item {
-            background-color: rgba(0, 0, 0, 0.3);
-            padding: 5px 10px;
-            border-radius: 4px;
-            font-size: 14px;
+        .skill {
+            background: linear-gradient(135deg, var(--ghibli-teal), var(--ghibli-blue));
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
-        .job {
-            margin-bottom: 20px;
-        }
+            .skill:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            }
 
-        .job-title {
-            font-weight: bold;
-            font-size: 18px;
-            display: block;
-        }
-
-        .job-company {
-            font-style: italic;
-        }
-
-        .job-period {
-            font-size: 14px;
-            opacity: 0.8;
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        .score {
-            position: absolute;
-            top: 20px;
+        .totoro {
+            position: fixed;
+            bottom: 20px;
             right: 20px;
-            font-size: 18px;
-            font-weight: bold;
+            width: 100px;
+            height: 100px;
+            background: url('/api/placeholder/100/100');
+            background-size: contain;
+            z-index: 10;
+            animation: bounce 2s infinite;
         }
 
-        .tetris-grid {
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .dust-sprite {
             position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            background-image: linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-            background-size: 20px 20px;
+            width: 30px;
+            height: 30px;
+            background: url('/api/placeholder/30/30');
+            background-size: contain;
+            opacity: 0.7;
             z-index: -1;
         }
 
-        .footer {
-            text-align: center;
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 2px solid rgba(255, 255, 255, 0.2);
-            font-size: 14px;
+        .clouds {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -2;
+            pointer-events: none;
         }
 
-        a {
-            color: var(--tetris-s);
-            text-decoration: none;
-            transition: color 0.3s ease;
+        .cloud {
+            position: absolute;
+            background: url('/api/placeholder/200/100');
+            background-size: contain;
+            background-repeat: no-repeat;
+            opacity: 0.6;
         }
 
-            a:hover {
-                color: var(--tetris-o);
-                text-decoration: underline;
-            }
-
-        .game-controls {
-            text-align: center;
-            margin-top: 20px;
-            font-size: 12px;
-            opacity: 0.7;
-        }
-
-        .language-switch {
+        /* Botão de idioma */
+        .language-toggle {
             position: absolute;
             top: 20px;
-            left: 20px;
-            z-index: 10;
+            right: 20px;
+            z-index: 100;
         }
 
         .language-btn {
-            background-color: var(--tetris-j);
+            background: linear-gradient(135deg, var(--ghibli-purple), var(--ghibli-blue));
             color: white;
             border: none;
-            padding: 8px 15px;
-            border-radius: 4px;
-            font-family: 'Courier New', monospace;
-            font-weight: bold;
+            padding: 10px 15px;
+            border-radius: 20px;
             cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            font-family: 'Nunito', sans-serif;
+            font-weight: 700;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
             .language-btn:hover {
-                background-color: var(--tetris-i);
-                transform: translateY(-2px);
-                box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+                transform: translateY(-3px);
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
             }
 
-        .content-pt, .content-en {
+        /* Elementos escondidos baseados na linguagem */
+        [lang="en"] .pt-content {
             display: none;
         }
 
-        .active {
-            display: block;
+        [lang="pt"] .en-content {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+                margin-top: 10px;
+            }
+
+            .header {
+                padding: 30px 15px;
+            }
+
+            .name {
+                font-size: 2em;
+            }
+
+            .title {
+                font-size: 1.2em;
+            }
+
+            .profile-pic {
+                width: 120px;
+                height: 120px;
+            }
+
+            .section {
+                padding: 15px;
+            }
+
+            .totoro {
+                width: 80px;
+                height: 80px;
+            }
+
+            .language-toggle {
+                top: 10px;
+                right: 10px;
+            }
+
+            .language-btn {
+                padding: 8px 12px;
+                font-size: 0.9em;
+            }
         }
     </style>
 </head>
-<body>
-    <div class="container">
-        <div class="tetris-grid"></div>
-        <div class="score">SCORE: 42950</div>
+<body lang="pt">
+<div class="language-toggle">
+<button class="language-btn" id="languageToggle">English</button>
+</div>
+<div class="clouds" id="clouds"></div>
+<div class="container">
+<div class="header">
+<!-- Usando a foto do GitHub -->
+<a href="https://github.com/anacsv" target="_blank">
+<img alt="Foto de Ana Paula Carneiro" class="profile-pic floating" src="https://avatars.githubusercontent.com/u/67640535?v=4"/>
+</a>
+<h1 class="name">Ana Paula Carneiro S. Vallejos</h1>
+<div class="pt-content">
+<h2 class="title">DESENVOLVEDORA PYTHON BACK-END</h2>
+</div>
+<div class="en-content">
+<h2 class="title">PYTHON BACK-END DEVELOPER</h2>
+</div>
+<div class="contact-info">
+<div class="contact-item">Porto, Portugal</div>
 
-        <div class="language-switch">
-            <button id="lang-toggle" class="language-btn" onclick="toggleLanguage()">🇬🇧 EN / PT 🇧🇷</button>
-        </div>
-
-        <div class="header">
-            <h1>Ana Paula Carneiro S. Vallejos</h1>
-            <h2>Python Back-End Developer</h2>
-            <div class="contact-info">
-                <div class="contact-item">📍 Porto, Portugal</div>
-                <div class="contact-item">✉️ anapaulacsvallejos@gmail.com</div>
-                <div class="contact-item">🔗 <a href="https://linkedin.com/in/anapaulacarneiro" target="_blank">linkedin.com/in/anapaulacarneiro</a></div>
-            </div>
-        </div>
-
-        <!-- VERSÃO EM PORTUGUÊS -->
-        <div id="content-pt" class="content-pt active">
-            <div class="tetris-block block-i">
-                <div class="tetris-shape">I</div>
-                <div class="tetris-block-content">
-                    <h3>Sobre Mim</h3>
-                    <p>Nascida e criada em Curitiba, Paraná - Brasil, morando em Porto, Portugal. Sou fã de tecnologia, gosto muito de estar em contato com pessoas e de ajudar sempre que posso. Acredito que "É ensinando que se aprende" e por isso estou sempre em contato com comunidades tech, dando mentoria para iniciantes e compartilhando conhecimentos.</p>
-                </div>
-            </div>
-
-            <div class="tetris-block block-t">
-                <div class="tetris-shape">T</div>
-                <div class="tetris-block-content">
-                    <h3>Habilidades</h3>
-                    <div class="skill-list">
-                        <div class="skill-item">Python</div>
-                        <div class="skill-item">Django</div>
-                        <div class="skill-item">PostgreSQL</div>
-                        <div class="skill-item">SQL</div>
-                        <div class="skill-item">Git</div>
-                        <div class="skill-item">Pytest</div>
-                        <div class="skill-item">Docker</div>
-                        <div class="skill-item">Heroku</div>
-                        <div class="skill-item">AWS</div>
-                        <div class="skill-item">Kubernetes</div>
-                        <div class="skill-item">Sentry</div>
-                        <div class="skill-item">Logentries</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="tetris-block block-o">
-                <div class="tetris-shape">O</div>
-                <div class="tetris-block-content">
-                    <h3>Experiência Profissional</h3>
-
-                    <div class="job">
-                        <span class="job-title">Help Desk</span>
-                        <span class="job-company">Monteiro Ribas Embalagens</span>
+<div class="contact-item">anapaulacsvallejos@gmail.com</div>
+<div class="contact-item"><a href="https://linkedin.com/in/anapaulacarneiro" target="_blank">linkedin.com/in/anapaulacarneiro</a></div>
+<div class="contact-item"><a href="https://github.com/anacsv" target="_blank">github.com/anacsv</a></div>
+</div>
+</div>
+<!-- Conteúdo em Português -->
+<div class="pt-content">
+<div class="section">
+<h3 class="section-title">Síntese</h3>
+<p>Nascida e criada em Curitiba, Paraná - Brasil, morando em Porto, Porto - Portugal. Sou fã de tecnologia, gosto muito de estar em contato com pessoas e de ajudar sempre que posso.</p>
+<p>Atualmente sou desenvolvedora back-end, tenho Experiência com Python, Django e PostgreSQL aplicados a estrutura de microserviços, testes com pytest, CI/CD, aplicações da AWS (SQS, SNS, ECR, Lambda, CloudWatch, entre outros), Docker, Kubernetes, Sentry, Logentries e Github.</p>
+<p>Sempre falo que: "É ensinando que se aprende" então estou sempre em contato com comunidades tech, dou mentoria para quem está iniciando e também gosto de compartilhar conhecimentos e aprender mais com a comunidade. Acredito ser importante incentivar devs a se comunicarem mais, para que percebam o quanto isso muda as nossas vidas, nossa percepção social e a visão sobre nós mesmos.</p>
+</div>
+<div class="section">
+<h3 class="section-title">Competências</h3>
+<div class="skills">
+<div class="skill">Python</div>
+<div class="skill">Django</div>
+<div class="skill">Postgres</div>
+<div class="skill">SQL</div>
+<div class="skill">Git</div>
+<div class="skill">Pytest</div>
+<div class="skill">Docker</div>
+<div class="skill">Heroku</div>
+<div class="skill">AWS</div>
+<div class="skill">Sentry</div>
+<div class="skill">Logentries</div>
+<div class="skill">Kubernetes</div>
+</div>
+</div>
+<div class="section">
+<h3 class="section-title">Experiência</h3>
+<div class="job">
+<div>
+<span class="job-title">HELP DESK</span> |
                         <span class="job-period">06/2024 - Atual</span>
-                        <p>Suporte para sistema ERP Sistrade, desenvolvimento de relatórios personalizados usando SQL e manutenção de banco de dados SQL Server.</p>
-                    </div>
-
-                    <div class="job">
-                        <span class="job-title">Cloud Engineer</span>
-                        <span class="job-company">Latitudde - Digital Enablers</span>
+</div>
+<div class="job-company">Monteiro Ribas Embalagens, Porto - PT</div>
+<p class="job-description">Suporte para sistema ERP Sistrade, desenvolvimento de relatórios personalizados usando SQL e manutenção de banco de dados SQL Server.</p>
+</div>
+<div class="job">
+<div>
+<span class="job-title">CLOUD ENGINEER</span> |
                         <span class="job-period">07/2022 - 12/2022</span>
-                        <p>Projeto para cliente do setor de saúde, utilizando C#, Python, Azure e APIGee. Criação e ajuste de documentação com OpenAPI e Swagger. Em projetos internos, uso de Django e PostgreSQL.</p>
-                    </div>
-
-                    <div class="job">
-                        <span class="job-title">Backend Developer</span>
-                        <span class="job-company">Bycoders_</span>
+</div>
+<div class="job-company">Latitudde - Digital Enablers, Porto - PT</div>
+<p class="job-description">Projeto para cliente do setor de saúde, utilizando C#, Python, Azure e APIGee em suas aplicações. Criação e ajuste de documentação com o uso do padrão OpenAPI e Swagger. Em alguns projetos internos, foi utilizado Django, PostgreSQL, entre outros.</p>
+</div>
+<div class="job">
+<div>
+<span class="job-title">BACKEND DEVELOPER</span> |
                         <span class="job-period">06/2021 - 02/2022</span>
-                        <p>Desenvolvimento backend com Python e Django Rest Framework para app mobile do Instituto Trata Fisioterapia, incluindo tratamento e análise de imagens.</p>
-                    </div>
-
-                    <div class="job">
-                        <span class="job-title">Backend Developer</span>
-                        <span class="job-company">Olist</span>
+</div>
+<div class="job-company">Bycoders_, Curitiba-BR</div>
+<p class="job-description">Analisar, desenvolver, testar e implementar soluções de software; Escrever/editar documentações de projetos. Desenvolvimento focado em backend Python, em um projeto com Django Rest Framework, para ser consumido por um aplicativo mobile do cliente (Instituto Trata Fisioterapia), onde foi feito tratamento e analise de imagens.</p>
+</div>
+<div class="job">
+<div>
+<span class="job-title">BACKEND DEVELOPER</span> |
                         <span class="job-period">07/2020 - 05/2021</span>
-                        <p>No time de logística, desenvolvimento de micro-serviços com Python, Django, SQL, Heroku, AWS, Kubernetes e Docker. Redação de documentações técnicas e participação ativa nos comitês de Clima & Cultura e Engajamento Tech.</p>
-                    </div>
-
-                    <div class="job">
-                        <span class="job-title">Analista de Sistemas</span>
-                        <span class="job-company">Sisaudi</span>
+</div>
+<div class="job-company">Olist, Curitiba-BR</div>
+<p class="job-description">Enquanto integrante do time de logística, foi possível analisar, desenvolver, testar e implementar soluções de software de micro-serviços com Python, Django, SQL, Heroku, AWS, Kubernetes, Docker, entre outros. Além de ser responsável também por redigir documentações técnicas. Fui membra ativa do comitê de Clima &amp; Cultura e também do de Engajamento Tech.</p>
+</div>
+<div class="job">
+<div>
+<span class="job-title">ANALISTA DE SISTEMAS</span> |
                         <span class="job-period">04/2015 - 12/2019</span>
-                        <p>Treinamento de sistemas Viasoft, desenvolvimento de relatórios em Delphi/SQL, manutenção de bancos Firebird e Oracle, homologação com bancos, configuração tributária e treinamento de funcionários.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="tetris-block block-j">
-                <div class="tetris-shape">J</div>
-                <div class="tetris-block-content">
-                    <h3>Formação</h3>
-                    <div class="job">
-                        <span class="job-title">Tecnólogo em Análise e Desenvolvimento de Sistemas</span>
-                        <span class="job-company">Universidade Positivo</span>
-                        <span class="job-period">02/2014 - 12/2017</span>
-                        <p>Curso focado em análise e desenvolvimento de soluções computacionais, abordando redes, sistemas operacionais, banco de dados, segurança e diversas linguagens de programação.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="tetris-block block-l">
-                <div class="tetris-shape">L</div>
-                <div class="tetris-block-content">
-                    <h3>Idiomas</h3>
-                    <div class="skill-list">
-                        <div class="skill-item">🇧🇷 Português: Nativo</div>
-                        <div class="skill-item">🇬🇧 Inglês: Intermediário</div>
-                        <div class="skill-item">🇪🇸 Espanhol: Intermediário</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="tetris-block block-s">
-                <div class="tetris-shape">S</div>
-                <div class="tetris-block-content">
-                    <h3>Voluntariado</h3>
-                    <p>Mentora e organizadora do PyLadies, grupo internacional que incentiva mulheres a ingressar na área de TI através da linguagem Python, organizando eventos, meetups e palestras sobre carreira e Python.</p>
-                </div>
-            </div>
-
-            <div class="footer">
-                GAME OVER? NUNCA! VAMOS JOGAR JUNTOS! 🎮
-                <div class="game-controls">
-                    ← MOVER ESQUERDA | → MOVER DIREITA | ↑ ROTAR | ↓ ACELERAR | ESPAÇO: COMEÇAR NOVO PROJETO
-                </div>
-            </div>
-        </div>
-
-        <!-- VERSÃO EM INGLÊS -->
-        <div id="content-en" class="content-en">
-            <div class="tetris-block block-i">
-                <div class="tetris-shape">I</div>
-                <div class="tetris-block-content">
-                    <h3>About Me</h3>
-                    <p>Born and raised in Curitiba, Paraná - Brazil, now living in Porto, Portugal. I'm a tech enthusiast who loves connecting with people and helping whenever possible. I believe that "By teaching, we learn," which is why I'm always engaged with tech communities, mentoring beginners, and sharing knowledge.</p>
-                </div>
-            </div>
-
-            <div class="tetris-block block-t">
-                <div class="tetris-shape">T</div>
-                <div class="tetris-block-content">
-                    <h3>Skills</h3>
-                    <div class="skill-list">
-                        <div class="skill-item">Python</div>
-                        <div class="skill-item">Django</div>
-                        <div class="skill-item">PostgreSQL</div>
-                        <div class="skill-item">SQL</div>
-                        <div class="skill-item">Git</div>
-                        <div class="skill-item">Pytest</div>
-                        <div class="skill-item">Docker</div>
-                        <div class="skill-item">Heroku</div>
-                        <div class="skill-item">AWS</div>
-                        <div class="skill-item">Kubernetes</div>
-                        <div class="skill-item">Sentry</div>
-                        <div class="skill-item">Logentries</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="tetris-block block-o">
-                <div class="tetris-shape">O</div>
-                <div class="tetris-block-content">
-                    <h3>Professional Experience</h3>
-
-                    <div class="job">
-                        <span class="job-title">Help Desk</span>
-                        <span class="job-company">Monteiro Ribas Embalagens</span>
+</div>
+<div class="job-company">Sisaudi, Curitiba-BR</div>
+<p class="job-description">Treinamento dos sistemas Viasoft para os clientes, desenvolvimento de relatórios personalizados em Delphi/SQL. Manutenção de banco de dados Firebird e Oracle. Homologação do sistema com os principais bancos do país, configuração de tributação (PIS, COFINS, ICMS, IPI, etc.). Apresentação dos sistemas em feiras e eventos. Treinamento de funcionários.</p>
+</div>
+<div class="job">
+<div>
+<span class="job-title">ESTÁGIO SUPORTE DE INFRAESTRUTURA</span> |
+                        <span class="job-period">10/2014 - 03/2015</span>
+</div>
+<div class="job-company">RIC TV, Curitiba-BR</div>
+<p class="job-description">Suporte para manutenção, configuração e instalação de software e hardware das ilhas e servidores Mac.</p>
+</div>
+</div>
+<div class="section">
+<h3 class="section-title">Educação</h3>
+<div class="job">
+<div>
+<span class="job-title">Tecnólogo, Análise e Desenvolvimento de Sistemas</span> |
+                        <span class="job-period">02/2014 – 12/2017</span>
+</div>
+<div class="job-company">Universidade Positivo, Curitiba-BR</div>
+<p class="job-description">Curso focado em análise e desenvolvimento de soluções computacionais. Na parte de análise, foi ensinado a identificar as reais necessidades do cliente e a projetar soluções computacionais que considere questões arquiteturais, tais como: redes, sistemas operacionais, banco de dados e segurança. No desenvolvimento, foi possível ter contato com diferentes linguagens de programação: C, Java, Java Web, ASP.Net, e C#. Que possibilita a construção de aplicações coorporativas em distintas plataformas tecnológicas.</p>
+</div>
+</div>
+<div class="section">
+<h3 class="section-title">Informações Adicionais</h3>
+<p>Trabalho voluntário como mentora e organizadora. O Pyladies é um grupo internacional que busca incentivar mulheres a entrar na área de TI por meio da linguagem Python. Organizamos eventos, meetups, palestras e afins sobre diversos assuntos relacionados a carreira e a linguagem Python.</p>
+</div>
+<div class="section">
+<h3 class="section-title">Idiomas</h3>
+<div class="skills">
+<div class="skill">Português: nativo</div>
+<div class="skill">Inglês: Intermediário</div>
+<div class="skill">Espanhol: Intermediário</div>
+</div>
+</div>
+</div>
+<!-- Conteúdo em Inglês -->
+<div class="en-content">
+<div class="section">
+<h3 class="section-title">Summary</h3>
+<p>Born and raised in Curitiba, Paraná - Brazil, currently living in Porto, Portugal. I'm a technology enthusiast who enjoys connecting with people and helping whenever possible.</p>
+<p>I'm currently a back-end developer with experience in Python, Django, and PostgreSQL applied to microservices architecture, pytest testing, CI/CD, AWS applications (SQS, SNS, ECR, Lambda, CloudWatch, among others), Docker, Kubernetes, Sentry, Logentries, and Github.</p>
+<p>I always say: "By teaching, you learn," so I'm constantly engaging with tech communities, mentoring beginners, and sharing knowledge while learning from the community. I believe it's important to encourage developers to communicate more, so they can realize how much this changes our lives, our social perception, and our self-view.</p>
+</div>
+<div class="section">
+<h3 class="section-title">Skills</h3>
+<div class="skills">
+<div class="skill">Python</div>
+<div class="skill">Django</div>
+<div class="skill">Postgres</div>
+<div class="skill">SQL</div>
+<div class="skill">Git</div>
+<div class="skill">Pytest</div>
+<div class="skill">Docker</div>
+<div class="skill">Heroku</div>
+<div class="skill">AWS</div>
+<div class="skill">Sentry</div>
+<div class="skill">Logentries</div>
+<div class="skill">Kubernetes</div>
+</div>
+</div>
+<div class="section">
+<h3 class="section-title">Experience</h3>
+<div class="job">
+<div>
+<span class="job-title">HELP DESK</span> |
                         <span class="job-period">06/2024 - Present</span>
-                        <p>Support for Sistrade ERP system, development of custom reports using SQL, and SQL Server database maintenance.</p>
-                    </div>
-
-                    <div class="job">
-                        <span class="job-title">Cloud Engineer</span>
-                        <span class="job-company">Latitudde - Digital Enablers</span>
+</div>
+<div class="job-company">Monteiro Ribas Embalagens, Porto - PT</div>
+<p class="job-description">Support for Sistrade ERP system, development of customized reports using SQL, and SQL Server database maintenance.</p>
+</div>
+<div class="job">
+<div>
+<span class="job-title">CLOUD ENGINEER</span> |
                         <span class="job-period">07/2022 - 12/2022</span>
-                        <p>Project for healthcare sector client using C#, Python, Azure, and APIGee. Creation and adjustment of documentation using OpenAPI and Swagger. Internal projects using Django and PostgreSQL.</p>
-                    </div>
-
-                    <div class="job">
-                        <span class="job-title">Backend Developer</span>
-                        <span class="job-company">Bycoders_</span>
+</div>
+<div class="job-company">Latitudde - Digital Enablers, Porto - PT</div>
+<p class="job-description">Project for a healthcare sector client, using C#, Python, Azure, and APIGee in their applications. Creation and adjustment of documentation using OpenAPI and Swagger standards. In some internal projects, Django and PostgreSQL were used, among other technologies.</p>
+</div>
+<div class="job">
+<div>
+<span class="job-title">BACKEND DEVELOPER</span> |
                         <span class="job-period">06/2021 - 02/2022</span>
-                        <p>Backend development with Python and Django Rest Framework for a mobile app for Instituto Trata Fisioterapia, including image processing and analysis.</p>
-                    </div>
-
-                    <div class="job">
-                        <span class="job-title">Backend Developer</span>
-                        <span class="job-company">Olist</span>
+</div>
+<div class="job-company">Bycoders_, Curitiba-BR</div>
+<p class="job-description">Analyzing, developing, testing, and implementing software solutions; Writing/editing project documentation. Development focused on Python backend, in a project with Django Rest Framework, to be consumed by a client's mobile application (Instituto Trata Fisioterapia), where image treatment and analysis were performed.</p>
+</div>
+<div class="job">
+<div>
+<span class="job-title">BACKEND DEVELOPER</span> |
                         <span class="job-period">07/2020 - 05/2021</span>
-                        <p>As part of the logistics team, developed microservices with Python, Django, SQL, Heroku, AWS, Kubernetes, and Docker. Wrote technical documentation and actively participated in Climate & Culture and Tech Engagement committees.</p>
-                    </div>
-
-                    <div class="job">
-                        <span class="job-title">Systems Analyst</span>
-                        <span class="job-company">Sisaudi</span>
+</div>
+<div class="job-company">Olist, Curitiba-BR</div>
+<p class="job-description">As a member of the logistics team, I analyzed, developed, tested, and implemented microservices software solutions with Python, Django, SQL, Heroku, AWS, Kubernetes, Docker, among others. I was also responsible for writing technical documentation. I was an active member of the Climate &amp; Culture committee and the Tech Engagement committee.</p>
+</div>
+<div class="job">
+<div>
+<span class="job-title">SYSTEMS ANALYST</span> |
                         <span class="job-period">04/2015 - 12/2019</span>
-                        <p>Viasoft systems training for clients, custom report development in Delphi/SQL, Firebird and Oracle database maintenance, system approval with major banks, tax configuration, and employee training.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="tetris-block block-j">
-                <div class="tetris-shape">J</div>
-                <div class="tetris-block-content">
-                    <h3>Education</h3>
-                    <div class="job">
-                        <span class="job-title">Associate Degree in Systems Analysis and Development</span>
-                        <span class="job-company">Universidade Positivo</span>
-                        <span class="job-period">02/2014 - 12/2017</span>
-                        <p>Course focused on analysis and development of computational solutions, covering networks, operating systems, databases, security, and various programming languages.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="tetris-block block-l">
-                <div class="tetris-shape">L</div>
-                <div class="tetris-block-content">
-                    <h3>Languages</h3>
-                    <div class="skill-list">
-                        <div class="skill-item">🇧🇷 Portuguese: Native</div>
-                        <div class="skill-item">🇬🇧 English: Intermediate</div>
-                        <div class="skill-item">🇪🇸 Spanish: Intermediate</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="tetris-block block-s">
-                <div class="tetris-shape">S</div>
-                <div class="tetris-block-content">
-                    <h3>Volunteer Work</h3>
-                    <p>Mentor and organizer at PyLadies, an international group that encourages women to enter the IT field through the Python language, organizing events, meetups, and talks about career and Python.</p>
-                </div>
-            </div>
-
-            <div class="footer">
-                GAME OVER? NEVER! LET'S PLAY TOGETHER! 🎮
-                <div class="game-controls">
-                    ← MOVE LEFT | → MOVE RIGHT | ↑ ROTATE | ↓ SPEED UP | SPACE BAR: START NEW PROJECT
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-    <script>
-        function toggleLanguage() {
-            const contentPt = document.getElementById('content-pt');
-            const contentEn = document.getElementById('content-en');
-            const button = document.getElementById('lang-toggle');
-
-            if (contentPt.classList.contains('active')) {
-                contentPt.classList.remove('active');
-                contentEn.classList.add('active');
-                button.innerHTML = '🇧🇷 PT / EN 🇬🇧';
-            } else {
-                contentEn.classList.remove('active');
-                contentPt.classList.add('active');
-                button.innerHTML = '🇬🇧 EN / PT 🇧🇷';
-            }
-        }
-    </script>
-</body>
-</html>
+</div>
+<div class="job-company">Sisaudi, Curitiba-BR</div>
+<p class="job-description">Training clients on Viasoft systems, developing customized reports in Delphi/SQL. Maintenance of Firebird and Oracle databases. Homologation of the system with the main banks in the country, tax configuration (PIS, COFINS, ICMS, IPI, etc.). Presentation of systems at fairs and events. Training employees.</p>
+</div>
+<div class="job">
+<div>
+<span class="job-title">INFRASTRUCTURE SUPPORT INTERN</span> |
+                        <span class="job-period">10/2014 - 03/2015</span>
+</div>
+<div class="job-company">RIC TV, Curitiba-BR</div>
+<p class="job-description">Support for maintenance, configuration, and installation of software and hardware for Mac workstations and servers.</p>
+</div>
+</div>
+<div class="section">
+<h3 class="section-title">Education</h3>
+<div class="job">
+<div>
+<span class="job-title">Bachelor's Degree, Systems Analysis and Development</span> |
+                        <span class="job-period">02/2014 – 12/2017</span>
+</div>
+<div class="job-company">Universidade Positivo, Curitiba-BR</div>
+<p class="job-description">Course focused on analysis and development of computational solutions. In the analysis part, I learned to identify the real needs of the client and to design computational solutions that consider architectural issues, such as networks, operating systems, databases, and security. In development, I had contact with different programming languages: C, Java, Java Web, ASP.Net, and C#, which enables the construction of corporate applications on different technological platforms.</p>
+</div>
+</div>
+<div class="section">
+<h3 class="section-title">Additional Information</h3>
+<p>Volunteer work as a mentor and organizer. Pyladies is an international group that seeks to encourage women to enter the IT field through the Python language. We organize events, meetups, lectures, and more about various subjects related to career and the Python language.</p>
+</div>
+<div class="section">
+<h3 class="section-title">Languages</h3>
+<div class="skills">
+<div class="skill">Portuguese: Native</div>
+<div class="skill">English: Intermediate</div>
+<div class="skill">Spanish: Intermediate</div>
+</div>
+</div>
+</div>
+</div>
+<div class="totoro" id="totoro"></div>
+<script></script></body></html>
